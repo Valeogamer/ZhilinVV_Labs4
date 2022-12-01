@@ -1,0 +1,16 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - iris.data
+    - train.py
+    outs:
+    - predict.txt
+  metric_cnt:
+    cmd: python metric_cnt.py
+    deps:
+    - iris.data
+    - metric_cnt.py
+    - train.py
+    metrics:
+    - metrics.json
